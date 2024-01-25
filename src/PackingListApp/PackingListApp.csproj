@@ -31,8 +31,16 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\pages\NewFolder1\**" />
+    <Compile Remove="ClientApp\src\pages\NewFolder\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\pages\NewFolder1\**" />
+    <Content Remove="ClientApp\src\pages\NewFolder\**" />
+    <EmbeddedResource Remove="ClientApp\src\pages\NewFolder1\**" />
+    <EmbeddedResource Remove="ClientApp\src\pages\NewFolder\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\pages\NewFolder1\**" />
+    <None Remove="ClientApp\src\pages\NewFolder\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
   <ItemGroup>

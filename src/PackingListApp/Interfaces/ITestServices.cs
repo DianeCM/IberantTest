@@ -10,9 +10,26 @@ namespace PackingListApp.Interfaces
     {
         List<TestModel> GetAll();
 
-        int Add(NewTestModel testmodel);
+        int Add(NewTestModel TestModel);
 
         TestModel Get(int id);
+
         int Put(int id, TestModel item);
+
+        int Delete(int id);
+    }
+
+    public interface IUserServices
+    {
+        List<User> GetAll();
+
+        int Add(NewUser newUser);
+
+        User Get(int id);
+
+        int Put(int id, User item);
+
+        int Delete(int id);     
+
     }
 }

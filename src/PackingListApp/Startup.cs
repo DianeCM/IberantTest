@@ -32,6 +32,7 @@ namespace PackingListApp
 
             services.AddDbContext<TestContext>(options => options.UseSqlServer(Configuration["TestContext:ConnectionString"]));
 
+
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -52,6 +53,8 @@ namespace PackingListApp
                 }
             });
             services.AddTransient<ITestServices, TestServices>();
+
+            services.AddTransient<IUserServices, UserServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

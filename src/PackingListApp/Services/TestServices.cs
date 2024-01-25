@@ -16,12 +16,12 @@ namespace PackingListApp.Services
             _context = context;
         }
 
-        public int Add(NewTestModel testmodel)
+        public int Add(NewTestModel TestModel)
         {
             var newtest = new TestModel()
             {
-                Title = testmodel.Title,
-                Description = testmodel.Description
+                Title = TestModel.Title,
+                Description = TestModel.Description
             };
             _context.TestModels.Add(newtest
             );
@@ -48,5 +48,14 @@ namespace PackingListApp.Services
             return id;
 
         }
+
+        public int Delete(int id)
+        {
+            var item_to_remove = _context.TestModels.FirstOrDefault(t => t.Id == id);
+            _context.TestModels.Remove(item_to_remove);
+            _context.SaveChanges();
+            return id;
+        }
+
     }
 }
