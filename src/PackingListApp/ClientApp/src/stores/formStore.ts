@@ -126,9 +126,10 @@ export abstract class FormStore<T> extends ReduxRepository<FormModel<T>> {
     public async submit(): Promise<CommandResult<T>> {
         const validationResult = this.validate(this.state.item as T);
         if (!validationResult.isValid) {
+            console.log(validationResult.errors)
             this.dispatch(this.ENTITY_VALIDATED, validationResult);
             return Promise.resolve({
-                isSuccess: false,                
+                isSuccess: false,
             } as CommandResult<T>);
         } else {
             var httpService = this.container.get<HttpService>(HttpService);

@@ -9,8 +9,8 @@ using PackingListApp.EntityFramework;
 namespace PackingListApp.Migrations
 {
     [DbContext(typeof(TestContext))]
-    [Migration("20240125171744_CreateUser")]
-    partial class CreateUser
+    [Migration("20240126073155_AddressConstraint")]
+    partial class AddressConstraint
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,8 @@ namespace PackingListApp.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<int>("AdminType")
                         .HasColumnType("int");

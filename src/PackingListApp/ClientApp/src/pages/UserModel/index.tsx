@@ -123,7 +123,7 @@ UserItemListState
                 },
                 {
                     field: "lastName",
-                    title: "LastName",
+                    title: "Last Name",
                     renderer: data => <span>{data.lastName}</span>,
                     editor: data => <Input />
                 },
